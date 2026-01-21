@@ -3,44 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarBlackVR - Интерактивная 3D модель</title>
+    <title>CarBlackVR - Выбор сценария</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 48px;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .scenarios {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .scenario-btn {
+            width: 250px;
+            height: 300px;
+            border: 3px solid #4CAF50;
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+            color: white;
+        }
+
+        .scenario-btn:hover {
+            border-color: #66BB6A;
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.3);
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #3d3d3d 0%, #2a2a2a 100%);
+        }
+
+        .scenario-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .scenario-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .scenario-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .scenario-description {
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+                margin-bottom: 30px;
+            }
+
+            .scenario-btn {
+                width: 200px;
+                height: 240px;
+            }
+
+            .scenario-icon {
+                font-size: 60px;
+                margin-bottom: 15px;
+            }
+
+            .scenario-title {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-
-    <model-viewer 
-        id="viewer"
-        src="/Models/car.glb" 
-        alt="Интерактивная 3D модель автомобиля"
-        auto-rotate
-        ar 
-        ar-modes="scene-viewer quick-look"
-        shadow-intensity="1" 
-        touch-action="pan-y"
-        style="width: 100%; height: 600px; background-color: transparent; --poster-color: transparent;">
-    </model-viewer>
-
-    <script>
-        document.addEventListener('load', () => {
-            const viewer = document.getElementById('viewer');
-            if (viewer && viewer.model) {
-                viewer.play();
-            }
-        });
-
-        const viewer = document.getElementById('viewer');
-        if (viewer) {
-            viewer.addEventListener('load', () => {
-                viewer.play();
-            });
-        }
-    </script>
+    <div class="container">
+        <h1>🎮 CarBlackVR</h1>
+        <div class="scenarios">
+            <a href="car.html" class="scenario-btn">
+                <div class="scenario-icon">🚗</div>
+                <div class="scenario-title">Машина</div>
+                <div class="scenario-description">Интерактивная 3D модель автомобиля</div>
+            </a>
+            <a href="elsa.html" class="scenario-btn">
+                <div class="scenario-icon">👑</div>
+                <div class="scenario-title">Эльза</div>
+                <div class="scenario-description">Интерактивная 3D модель</div>
+            </a>
+        </div>
+    </div>
 </body>
 </html>

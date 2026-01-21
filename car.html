@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarBlackVR - Машина</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+        }
+
+        .header {
+            background-color: #2d2d2d;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .header h1 {
+            color: #4CAF50;
+            font-size: 28px;
+        }
+
+        .back-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background-color: #66BB6A;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: calc(100vh - 80px);
+            background-color: transparent;
+        }
+
+        #viewer {
+            --poster-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚗 Машина</h1>
+        <a href="index.html" class="back-btn">← Назад</a>
+    </div>
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+    <model-viewer 
+        id="viewer"
+        src="Models/car.glb" 
+        alt="Интерактивная 3D модель автомобиля"
+        auto-rotate
+        ar 
+        ar-modes="scene-viewer quick-look"
+        shadow-intensity="1" 
+        touch-action="pan-y">
+    </model-viewer>
+
+    <script>
+        const viewer = document.getElementById('viewer');
+        if (viewer) {
+            viewer.addEventListener('load', () => {
+                viewer.play();
+            });
+        }
+    </script>
+</body>
+</html>
