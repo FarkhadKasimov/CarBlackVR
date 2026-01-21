@@ -16,13 +16,30 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
     <model-viewer 
+        id="viewer"
         src="/Models/car.glb" 
         alt="Интерактивная 3D модель автомобиля"
-        auto-play
+        auto-rotate
         ar 
         shadow-intensity="1" 
         touch-action="pan-y"
         style="width: 100%; height: 600px; background-color: transparent; --poster-color: transparent;">
     </model-viewer>
+
+    <script>
+        document.addEventListener('load', () => {
+            const viewer = document.getElementById('viewer');
+            if (viewer && viewer.model) {
+                viewer.play();
+            }
+        });
+
+        const viewer = document.getElementById('viewer');
+        if (viewer) {
+            viewer.addEventListener('load', () => {
+                viewer.play();
+            });
+        }
+    </script>
 </body>
 </html>
